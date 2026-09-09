@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>방탈출 인간연구소</title>
+<meta name="description" content="방탈출을 할 때 드러나는 사람들의 행동과 취향을 연구합니다.">
+<style>
+:root{--bg:#f5f1eb;--ink:#151515;--muted:#77716b;--line:#d9d1c8;--red:#b7202c}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.app{width:min(100%,760px);margin:auto;padding:18px 18px 72px}
+.brandbar{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:13px;margin-bottom:8px}
+.brandbar .lab{color:#777;font-weight:500;letter-spacing:.11em;font-size:11px}
+.rule{height:1px;background:var(--line);margin-bottom:24px}
+.kicker{font-size:12px;letter-spacing:.16em;color:var(--red);font-weight:900;margin-bottom:10px}
+h1{font-size:40px;line-height:1.06;margin:0 0 14px;letter-spacing:-.055em}
+.intro{font-size:17px;line-height:1.65;margin:0 0 28px;color:#48433f}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;margin:28px 0 12px}
+.section-title{font-size:19px;font-weight:900;letter-spacing:-.03em}
+.section-sub{font-size:12px;color:var(--muted)}
+.test-list{border-top:1px solid var(--line)}
+.test-card{display:grid;grid-template-columns:132px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.thumb{width:132px;aspect-ratio:16/10;object-fit:cover;display:block;border:1px solid #d6cec5;background:#e9e2da}
+.test-meta{font-size:11px;color:var(--red);letter-spacing:.14em;font-weight:900;margin-bottom:6px}
+.test-title{font-size:20px;line-height:1.25;font-weight:900;letter-spacing:-.04em;margin-bottom:6px}
+.test-desc{font-size:14px;line-height:1.5;color:#57514c;margin-bottom:8px}
+.test-info{font-size:12px;color:#8a837c}
+.footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;line-height:1.7;color:#8a837c}
+@media(max-width:520px){
+  .app{padding:14px 14px 60px}
+  h1{font-size:35px}
+  .intro{font-size:16px}
+  .test-card{grid-template-columns:110px 1fr;gap:13px;padding:14px 0}
+  .thumb{width:110px}
+  .test-title{font-size:18px}
+  .test-desc{font-size:13px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="brandbar">
+    <span>방탈출 인간연구소</span>
+    <span class="lab">ESCAPE PLAYER LAB</span>
+  </div>
+  <div class="rule"></div>
+
+  <div class="kicker">ESCAPE PLAYER LAB</div>
+  <h1>방탈출하는 인간을<br>연구합니다.</h1>
+  <p class="intro">
+    같은 방탈출을 해도 사람마다 전혀 다르게 반응합니다.<br>
+    문제를 푸는 방식, 무서워하는 포인트, 몰입하는 방식까지.<br>
+    테스트로 나의 방탈출 플레이 성향을 확인해보세요.
+  </p>
+
+  <div class="section-head">
+    <div class="section-title">테스트 모아보기</div>
+    <div class="section-sub">최신순</div>
+  </div>
+
+  <div id="testList" class="test-list"></div>
+
+  <div class="footer">
+    방탈출 인간연구소는 방탈출 경험과 플레이어 행동을 소재로 한 웹 테스트 프로젝트입니다.
+  </div>
+</div>
+
+<script>
+const TESTS = [
+  {
+    number: "001",
+    title: "쫄도 다 같은 쫄이 아니다",
+    description: "나는 쫄일까, 탱일까? 어떤 공포에 특히 약한지 확인해보는 방탈출 공포 유형 테스트.",
+    image: "test001.jpg",
+    url: "https://youtubuhi.github.io/escape-fear-test/",
+    info: "10문항 · 약 1분 · 결과 7종"
+  }
+
+  // TEST 002 추가 예시:
+  // ,
+  // {
+  //   number: "002",
+  //   title: "테스트 제목",
+  //   description: "한 줄 설명",
+  //   image: "test002.jpg",
+  //   url: "TEST 002 주소",
+  //   info: "10문항 · 약 1분 · 결과 6종"
+  // }
+];
+
+const list = document.getElementById("testList");
+[...TESTS].reverse().forEach(test => {
+  const a = document.createElement("a");
+  a.className = "test-card";
+  a.href = test.url;
+  a.innerHTML = `
+    <img class="thumb" src="${test.image}" alt="${test.title}">
+    <div>
+      <div class="test-meta">TEST ${test.number}</div>
+      <div class="test-title">${test.title}</div>
+      <div class="test-desc">${test.description}</div>
+      <div class="test-info">${test.info}</div>
+    </div>
+  `;
+  list.appendChild(a);
+});
+</script>
+</body>
+</html>
