@@ -44,6 +44,44 @@ h1{font-size:40px;line-height:1.06;margin:0 0 14px;letter-spacing:-.055em}
   .test-title{font-size:18px}
   .test-desc{font-size:13px}
 }
+
+  @media(max-width:520px){
+  .app{padding:14px 14px 60px}
+  h1{font-size:35px}
+  .intro{font-size:16px}
+  .test-card{grid-template-columns:110px 1fr;gap:13px;padding:14px 0}
+  .thumb{width:110px}
+  .test-title{font-size:18px}
+  .test-desc{font-size:13px}
+}
+
+/* ↓ 여기부터 추가 */
+.instagram-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 14px;
+  color: #151515;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.instagram-top-link span {
+  font-weight: 500;
+}
+
+.instagram-top-link strong {
+  margin-left: 3px;
+  color: #b7202c;
+  font-weight: 700;
+}
+
+.instagram-top-link:active {
+  opacity: 0.55;
+}
+/* ↑ 여기까지 */
+
+</style>
 </style>
 </head>
 <body>
@@ -56,6 +94,34 @@ h1{font-size:40px;line-height:1.06;margin:0 0 14px;letter-spacing:-.055em}
 
   <div class="kicker">ESCAPE PLAYER LAB</div>
   <h1>방탈출하는 인간을<br>연구합니다.</h1>
+
+   <a
+    href="https://www.instagram.com/escapeplayerlab/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="instagram-top-link"
+    onclick="gtag('event', 'instagram_follow_click', {
+      page: 'test_list'
+    });"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      width="17"
+      height="17"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+      <circle cx="12" cy="12" r="4"></circle>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+    </svg>
+
+    <span>@escapeplayerlab</span>
+    <strong>팔로우하기</strong>
+  </a>
+  
   <p class="intro">
     같은 방탈출을 해도 사람마다 전혀 다르게 반응합니다.<br>
     문제를 푸는 방식, 무서워하는 포인트, 몰입하는 방식까지.<br>
